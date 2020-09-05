@@ -1,0 +1,66 @@
+---
+title: "Homework 2"
+author: "Ethan_Lamons"
+date: "9/5/2020"
+output: html_document
+---
+
+-------
+
+# Part 2
+
+## part a
+
+__2x + 5y = 33__  
+__x + 3y = 19__  
+
+
+First, convert your system of equations into matrices.
+```{r}
+a <- matrix(c(2, 1, 5, 3), nrow = 2, ncol = 2)
+b <- rbind(33, 19)
+c <- matrix(c("x", "y"))
+a
+b
+c
+```
+Matrix c won't be used to solve this problem, but it is there to show  
+that the equation in matrix form will be a*c = b
+
+
+Next, create the inverse of a, and then multiply the equation by a_inverse
+```{r}
+a_inverse <- solve(a)
+a_inverse
+a %*% a_inverse
+answer <- a_inverse %*% b
+answer
+```
+Multiplying a_inverse and a gives us the identity matrix as it should, and   
+multiplying a_inverse and b gives us our answer as a matrix where x = 4 and  
+y = 5.  Proof of these answers is shown below.
+```{r}
+x <- 4
+y <- 5
+(2 * x + 5 * y) == 33
+(x + 3 * y) == 19
+
+(a %*% answer) == b
+```
+
+
+## part b
+
+The simplest way to do this is to sum the vector and divide by 100.
+```{r}
+vector_1 <- c(1:100)
+vector_1
+sum(vector_1) / 100
+```
+
+## part c
+
+```{r}
+install.packages("dplyr")
+```
+
