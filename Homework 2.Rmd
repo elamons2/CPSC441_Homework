@@ -5,9 +5,11 @@ date: "9/5/2020"
 output: html_document
 ---
 
--------
+-----
 
 # Part 2
+
+-----
 
 ## part a
 
@@ -48,6 +50,7 @@ y <- 5
 (a %*% answer) == b
 ```
 
+-----
 
 ## part b
 
@@ -58,9 +61,22 @@ vector_1
 sum(vector_1) / 100
 ```
 
+-----
+
 ## part c
 
 ```{r}
-install.packages("dplyr")
+install.packages("dplyr", repos = "http://cran.us.r-project.org")
+```
+
+-----
+
+# Part 3
+
+```{r}
+row_1 <- c("A", "B", "C", "D")
+row_2 <- c("D", "E", "F", "G")
+matrix <- rbind(row_1, row_2)
+data.frame(matrix)
 ```
 
