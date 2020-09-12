@@ -1,0 +1,50 @@
+---
+title: "Homework 3"
+author: "EHL"
+date: "9/12/2020"
+output: html_document
+---
+
+# Part 1
+
+```{r}
+my_mean <- function(data_frame) {
+  my_sum <- sum(data_frame)
+  n <- nrow(data_frame)
+  result <- my_sum / n
+  return(result)
+}
+
+```
+
+-----
+
+# Part 2
+
+```{r}
+key_crop_yields <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-09-01/key_crop_yields.csv')
+
+range(key_crop_yields["Year"])
+```
+
+-----
+
+# Part 3
+
+```{r}
+Maize_data <- key_crop_yields["Maize (tonnes per hectare)"]
+clean_Maize_data <- na.omit(Maize_data)
+
+my_mean(clean_Maize_data)
+```
+
+-----
+
+# Part 4
+
+```{r}
+Entity <- key_crop_yields["Entity"]
+write.table(Entity, file = "Entity.csv")
+read.csv("Entity.csv")
+```
+
